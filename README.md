@@ -2,7 +2,7 @@
 
 ## Screenshots
 
-## Authentications Page
+<b align="center"> Authentications Page </b>
 
 <table align="center">
   <tr>
