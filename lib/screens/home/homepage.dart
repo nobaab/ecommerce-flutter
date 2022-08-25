@@ -1,5 +1,8 @@
+import 'package:custom_navigation_bar/custom_navigation_bar.dart';
+import 'package:ecommerce/models/products.dart';
+import 'package:ecommerce/screens/home/components/_body.dart';
+import 'package:floating_navigation_bar/floating_navigation_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../models/categories.dart';
 
@@ -12,19 +15,20 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   List<Categories> categories = Categories.getCategories();
+  List<Products> products = Products.getProducts();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBody: true,
       appBar: AppBar(
-        backgroundColor: Colors.white,
         elevation: 0,
-      ),
-      body: Column(
-        children: [
+        backgroundColor: Colors.transparent,
+        centerTitle: true,
+        actions: [
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Container(
+                margin: const EdgeInsets.only(right: 20),
                 height: 40,
                 width: 290,
                 decoration: BoxDecoration(
@@ -41,58 +45,42 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
               ),
-              const Icon(
-                Icons.camera_alt_rounded,
-                color: Color(0xFF00C569),
-                size: 30,
+              IconButton(
+                onPressed: () {},
+                icon: const Icon(
+                  Icons.camera_alt_rounded,
+                  color: Color(0xFF00C569),
+                  size: 30,
+                ),
               ),
             ],
           ),
-          const SizedBox(
-            height: 30,
-          ),
-          const Padding(
-            padding: EdgeInsets.only(right: 240.0),
-            child: Text(
-              'Categories',
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          SizedBox(
-            height: 100,
-            width: 350,
-            child: ListView.separated(
-                scrollDirection: Axis.horizontal,
-                shrinkWrap: true,
-                itemCount: categories.length,
-                separatorBuilder: (BuildContext context, int index) =>
-                    const SizedBox(width: 30),
-                itemBuilder: (context, index) {
-                  return Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      SvgPicture.asset(
-                        categories[index].image,
-                        height: 30,
-                        width: 30,
-                      ),
-                      Text(
-                        categories[index].name,
-                        style: const TextStyle(fontSize: 12),
-                      ),
-                    ],
-                  );
-                }),
-          ),
         ],
       ),
+      // bottomNavigationBar: FloatingNavigationBar(
+      //   barHeight: 80.0,
+      //   barWidth: MediaQuery.of(context).size.width - 40.0,
+      //   backgroundColor: Colors.white,
+      //   iconColor: Colors.black,
+      //   textStyle: const TextStyle(
+      //     color: Colors.black,
+      //     fontSize: 14.0,
+      //   ),
+      //   iconSize: 20.0,
+      //   indicatorColor: const Color(0xFF00C569),
+      //   indicatorHeight: 5,
+      //   indicatorWidth: 14.0,
+      //   items: [
+      //     NavBarItems(icon: Icons.home, title: "Explore"),
+      //     NavBarItems(icon: Icons.shopping_basket_sharp, title: "Cart"),
+      //     NavBarItems(icon: Icons.person, title: "Profile"),
+      //   ],
+      //   onChanged: (value) {
+      //     // USE YOUR STATE MANAGEMENT TECHNIQUE TO GET
+      //     // AND CHANGE INDEX OF NAVIGATION BAR
+      //   },
+      // ),
+      body: HomePageBody(categories: categories, products: products),
     );
   }
 }
