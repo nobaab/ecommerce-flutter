@@ -57,29 +57,29 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
-      // bottomNavigationBar: FloatingNavigationBar(
-      //   barHeight: 80.0,
-      //   barWidth: MediaQuery.of(context).size.width - 40.0,
-      //   backgroundColor: Colors.white,
-      //   iconColor: Colors.black,
-      //   textStyle: const TextStyle(
-      //     color: Colors.black,
-      //     fontSize: 14.0,
-      //   ),
-      //   iconSize: 20.0,
-      //   indicatorColor: const Color(0xFF00C569),
-      //   indicatorHeight: 5,
-      //   indicatorWidth: 14.0,
-      //   items: [
-      //     NavBarItems(icon: Icons.home, title: "Explore"),
-      //     NavBarItems(icon: Icons.shopping_basket_sharp, title: "Cart"),
-      //     NavBarItems(icon: Icons.person, title: "Profile"),
-      //   ],
-      //   onChanged: (value) {
-      //     // USE YOUR STATE MANAGEMENT TECHNIQUE TO GET
-      //     // AND CHANGE INDEX OF NAVIGATION BAR
-      //   },
-      // ),
+      bottomNavigationBar: FloatingNavigationBar(
+        barHeight: 80.0,
+        barWidth: MediaQuery.of(context).size.width - 40.0,
+        backgroundColor: Colors.white,
+        iconColor: Colors.black,
+        textStyle: const TextStyle(
+          color: Colors.black,
+          fontSize: 14.0,
+        ),
+        iconSize: 20.0,
+        indicatorColor: const Color(0xFF00C569),
+        indicatorHeight: 5,
+        indicatorWidth: 14.0,
+        items: [
+          NavBarItems(icon: Icons.home, title: "Explore"),
+          NavBarItems(icon: Icons.shopping_basket_sharp, title: "Cart"),
+          NavBarItems(icon: Icons.person, title: "Profile"),
+        ],
+        onChanged: (value) {
+          // USE YOUR STATE MANAGEMENT TECHNIQUE TO GET
+          // AND CHANGE INDEX OF NAVIGATION BAR
+        },
+      ),
       body: HomePageBody(categories: categories, products: products),
     );
   }

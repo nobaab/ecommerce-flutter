@@ -226,6 +226,45 @@ class HomePageBody extends StatelessWidget {
               ],
             ),
           ),
+          SizedBox(
+            height: 290,
+            child: GridView.builder(
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                childAspectRatio: 2 / 4,
+                mainAxisSpacing: 10,
+              ),
+              itemCount: products.length,
+              itemBuilder: (context, index) {
+                return Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Image.asset(
+                      products[index].imageUrl,
+                      height: 240,
+                      width: 164,
+                    ),
+                    Text(
+                      products[index].title,
+                      style: const TextStyle(fontSize: 16),
+                    ),
+                    Text(
+                      products[index].description,
+                      style: const TextStyle(
+                          fontSize: 12, color: Color(0xFF929292)),
+                    ),
+                    Text(
+                      products[index].price,
+                      style: const TextStyle(
+                          fontSize: 16, color: Color(0xFF00C569)),
+                    ),
+                  ],
+                );
+              },
+            ),
+          ),
         ],
       ),
     );
