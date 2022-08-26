@@ -75,10 +75,7 @@ class _HomePageState extends State<HomePage> {
           NavBarItems(icon: Icons.shopping_basket_sharp, title: "Cart"),
           NavBarItems(icon: Icons.person, title: "Profile"),
         ],
-        onChanged: (value) {
-          // USE YOUR STATE MANAGEMENT TECHNIQUE TO GET
-          // AND CHANGE INDEX OF NAVIGATION BAR
-        },
+        onChanged: (value) {},
       ),
       body: HomePageBody(categories: categories, products: products),
     );

@@ -1,5 +1,6 @@
 import 'package:ecommerce/models/categories.dart';
 import 'package:ecommerce/models/products.dart';
+import 'package:ecommerce/screens/categories/categories.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -15,6 +16,7 @@ class HomePageBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    int selectedIndex;
     return SingleChildScrollView(
       child: Column(
         mainAxisSize: MainAxisSize.min,
@@ -72,20 +74,25 @@ class HomePageBody extends StatelessWidget {
                 separatorBuilder: (BuildContext context, int index) =>
                     const SizedBox(width: 30),
                 itemBuilder: (context, index) {
-                  return Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      SvgPicture.asset(
-                        categories[index].image,
-                        height: 30,
-                        width: 30,
-                      ),
-                      Text(
-                        categories[index].name,
-                        style: const TextStyle(fontSize: 12),
-                      ),
-                    ],
+                  return InkWell(
+                    onTap: () {
+                      print(index);
+                    },
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        SvgPicture.asset(
+                          categories[index].image,
+                          height: 30,
+                          width: 30,
+                        ),
+                        Text(
+                          categories[index].name,
+                          style: const TextStyle(fontSize: 12),
+                        ),
+                      ],
+                    ),
                   );
                 }),
           ),
@@ -121,7 +128,7 @@ class HomePageBody extends StatelessWidget {
                 childAspectRatio: 2 / 4,
                 mainAxisSpacing: 10,
               ),
-              itemCount: products.length,
+              itemCount: products.length < 2 ? products.length : 2,
               itemBuilder: (context, index) {
                 return Column(
                   mainAxisSize: MainAxisSize.min,
@@ -185,18 +192,28 @@ class HomePageBody extends StatelessWidget {
                       ),
                       height: 100,
                       width: 200,
-                      child: Card(
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: <Widget>[
-                            ClipRRect(
-                                borderRadius: BorderRadius.circular(15.0),
-                                child: Image.asset(
-                                    'assets/images/products/Icon_B&o.png')),
-                            const Text('B&o',
-                                style: TextStyle(
-                                    fontSize: 16, fontWeight: FontWeight.bold)),
-                          ],
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      const CategoriesDetails()));
+                        },
+                        child: Card(
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: <Widget>[
+                              ClipRRect(
+                                  borderRadius: BorderRadius.circular(15.0),
+                                  child: Image.asset(
+                                      'assets/images/products/Icon_B&o.png')),
+                              const Text('B&o',
+                                  style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold)),
+                            ],
+                          ),
                         ),
                       ),
                     ),
@@ -206,18 +223,24 @@ class HomePageBody extends StatelessWidget {
                       ),
                       height: 100,
                       width: 200,
-                      child: Card(
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: <Widget>[
-                            ClipRRect(
-                                borderRadius: BorderRadius.circular(15.0),
-                                child: Image.asset(
-                                    'assets/images/products/Icon_Beats.png')),
-                            const Text('Beats',
-                                style: TextStyle(
-                                    fontSize: 16, fontWeight: FontWeight.bold)),
-                          ],
+                      child: InkWell(
+                        onTap: () {
+                          print('hello');
+                        },
+                        child: Card(
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: <Widget>[
+                              ClipRRect(
+                                  borderRadius: BorderRadius.circular(15.0),
+                                  child: Image.asset(
+                                      'assets/images/products/Icon_Beats.png')),
+                              const Text('Beats',
+                                  style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold)),
+                            ],
+                          ),
                         ),
                       ),
                     ),
@@ -226,44 +249,41 @@ class HomePageBody extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(
-            height: 290,
-            child: GridView.builder(
-              shrinkWrap: true,
-              physics: const NeverScrollableScrollPhysics(),
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                childAspectRatio: 2 / 4,
-                mainAxisSpacing: 10,
-              ),
-              itemCount: products.length,
-              itemBuilder: (context, index) {
-                return Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Image.asset(
-                      products[index].imageUrl,
-                      height: 240,
-                      width: 164,
-                    ),
-                    Text(
-                      products[index].title,
-                      style: const TextStyle(fontSize: 16),
-                    ),
-                    Text(
-                      products[index].description,
-                      style: const TextStyle(
-                          fontSize: 12, color: Color(0xFF929292)),
-                    ),
-                    Text(
-                      products[index].price,
-                      style: const TextStyle(
-                          fontSize: 16, color: Color(0xFF00C569)),
-                    ),
-                  ],
-                );
-              },
+          GridView.builder(
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              childAspectRatio: 2 / 3,
+              mainAxisSpacing: 10,
             ),
+            itemCount: products.length,
+            itemBuilder: (context, index) {
+              return Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Image.asset(
+                    products[index].imageUrl,
+                    height: 240,
+                    width: 164,
+                  ),
+                  Text(
+                    products[index].title,
+                    style: const TextStyle(fontSize: 16),
+                  ),
+                  Text(
+                    products[index].description,
+                    style:
+                        const TextStyle(fontSize: 12, color: Color(0xFF929292)),
+                  ),
+                  Text(
+                    products[index].price,
+                    style:
+                        const TextStyle(fontSize: 16, color: Color(0xFF00C569)),
+                  ),
+                ],
+              );
+            },
           ),
         ],
       ),

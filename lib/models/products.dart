@@ -23,6 +23,26 @@ class Products {
           description: "Tag Heuer",
           price: '\$400',
           imageUrl: "assets/images/products/watch.png"),
+      Products(
+          title: "B&o Desk Lamp",
+          description: "Bang and Olufsen",
+          price: '\$450',
+          imageUrl: "assets/images/products/lamp.png"),
+      Products(
+          title: "BeoPlay Stand Speaker",
+          description: "Bang and Olufsen",
+          price: '\$300',
+          imageUrl: "assets/images/products/speaker1.png"),
+      Products(
+          title: "Leather Wristwatch",
+          description: "Tag Heuer",
+          price: '\$400',
+          imageUrl: "assets/images/products/watch.png"),
+      Products(
+          title: "Leather Wristwatch",
+          description: "Tag Heuer",
+          price: '\$400',
+          imageUrl: "assets/images/products/watch.png"),
     ];
   }
 }
