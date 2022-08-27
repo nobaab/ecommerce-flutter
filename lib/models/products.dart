@@ -43,6 +43,11 @@ class Products {
           description: "Tag Heuer",
           price: '\$400',
           imageUrl: "assets/images/products/watch.png"),
+      Products(
+          title: "Nike Dri-FIT Long Sleeve",
+          description: "Long Sleeve",
+          price: '\$200',
+          imageUrl: "assets/images/products/nike.png"),
     ];
   }
 }

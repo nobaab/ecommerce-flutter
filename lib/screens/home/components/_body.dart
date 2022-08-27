@@ -1,8 +1,10 @@
 import 'package:ecommerce/models/categories.dart';
 import 'package:ecommerce/models/products.dart';
-import 'package:ecommerce/screens/categories/categories.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+
+import '../../products/categories.dart';
 
 class HomePageBody extends StatelessWidget {
   const HomePageBody({
