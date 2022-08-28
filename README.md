@@ -35,4 +35,17 @@
     
   </tr>
  </table>
+ 
+ 
+ <h1 style="text-align:center;">Explore Category</h1>
+
+<table align="center">
+  <tr>
+    <td><img src="https://raw.githubusercontent.com/nobaab/ecommerce-flutter/main/screenshots/productdetails.png" width=800 ></td>
+    
+    
+    
+  </tr>
+ </table>
+
 
