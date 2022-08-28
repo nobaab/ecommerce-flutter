@@ -36,8 +36,6 @@
   </tr>
  </table>
  
- 
- <h1 style="text-align:center;">Explore Category</h1>
 
 <table align="center">
   <tr>
