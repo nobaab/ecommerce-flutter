@@ -2,11 +2,11 @@
 
 ## Screenshots
 
-<b align="center"> Authentications Page </b>
+
 
 <table align="center">
   <tr>
-    <td><img src="https://i.imgur.com/8J3SuLx.png" width=800 ></td>
+    <td><img src="https://github.com/nobaab/ecommerce-flutter/blob/main/screenshots/auth.png" width=800 ></td>
   
     
     
@@ -14,7 +14,7 @@
  </table>
 
 
-<h1 style="text-align:center;">HomePage</h1>
+
 
 <table align="center">
   <tr>
@@ -25,11 +25,10 @@
   </tr>
  </table>
  
- <h1 style="text-align:center;">Explore Category</h1>
 
 <table align="center">
   <tr>
-    <td><img src="https://raw.githubusercontent.com/nobaab/ecommerce-flutter/main/screenshots/categoriesdetails.png" width=800 ></td>
+    <td><img src="https://github.com/nobaab/ecommerce-flutter/blob/main/screenshots/explorecategory.png" width=800 ></td>
     
     
     
